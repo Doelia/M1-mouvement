@@ -28,16 +28,18 @@ public class Solver {
 		Configuration best = null;
 		for (int i = 0; i < maxTries; i++) {
 			Configuration x = configurations.initialConfiguration();
+			System.out.println("initial = "+x);
 			Configuration bestWalk = x;
 			for (int j = 0; j < maxMoves; j++) {
 				x = genericMove(x);
+				System.out.println("move = "+x);
 				//System.out.println("Move to "+x);
 				if (x.isBetter(bestWalk)) {
 					bestWalk = x;
 					//System.out.println("Best walk devient "+bestWalk);
 				}
 			}
-			if (bestWalk != null && bestWalk.isBetter(best)) {
+			if (best == null || (bestWalk != null && bestWalk.isBetter(best))) {
 				best =  bestWalk;
 				//System.out.println("Best devient "+best);
 			}
