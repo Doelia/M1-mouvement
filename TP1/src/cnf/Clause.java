@@ -2,10 +2,8 @@ package cnf;
 import java.util.ArrayList;
 import java.util.List;
 
-import solver.Configuration;
 
-
-public class Clause implements Configuration {
+public class Clause  {
 
 	int maxValues = 20;
 	List<Atome> atomes;
@@ -42,21 +40,16 @@ public class Clause implements Configuration {
 	public String toString() {
 		String s = "Clause : ";
 		for (Atome a : atomes) s += a.toString()+ " ";
-		s+= ", cost "+this.getCost();
-		return s;
-	}
-
-	@Override
-	public boolean isBetter(Configuration c) {
-		if (c == null) return true;
-		return (this.getCost() > c.getCost());
-	}
-
-	@Override
-	public int getCost() {
-		int s = 0;
-		for (Atome a : atomes) s += a.getVal();
 		return s;
 	}
 	
+	public boolean satisfiable(Interpretation i) {
+		for (Atome a : this.atomes) {
+			if (i.isTrue(a.getVal())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

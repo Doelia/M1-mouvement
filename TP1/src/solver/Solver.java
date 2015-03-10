@@ -28,11 +28,11 @@ public class Solver {
 		Configuration best = null;
 		for (int i = 0; i < maxTries; i++) {
 			Configuration x = configurations.initialConfiguration();
-			System.out.println("initial = "+x);
+			//System.out.println("initial = "+x);
 			Configuration bestWalk = x;
 			for (int j = 0; j < maxMoves; j++) {
 				x = genericMove(x);
-				System.out.println("move = "+x);
+				//System.out.println("move = "+x);
 				//System.out.println("Move to "+x);
 				if (x.isBetter(bestWalk)) {
 					bestWalk = x;

@@ -6,3 +6,4 @@ public interface Configuration {
 	public boolean isBetter(Configuration c);
 	public int getCost();
 }
+

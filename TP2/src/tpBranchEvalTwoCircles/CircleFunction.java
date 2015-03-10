@@ -48,7 +48,5 @@ public class CircleFunction extends Function {
 				),
 				IMath.sqr(radiusd)
 			);
-
-
 	}
 }
